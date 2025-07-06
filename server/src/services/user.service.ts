@@ -15,4 +15,14 @@ export class UserService implements IUserService {
         
         return true
     }
+
+    async getUserById(id: number): Promise<User | null> {
+        const user = await User.findByPk(id);
+
+        if (!user ) {
+            return null;
+        }
+
+        return user;
+    }
 }

@@ -1,6 +1,7 @@
 import express from 'express'
-import { createUserController, deleteUserControlle } from '../controllers/user.controller';
+import { createUserController, deleteUserControlle, getUserByidController } from '../controllers/user.controller';
 export const userRouter = express.Router();
 
-userRouter.post('/create_user', createUserController);
-userRouter.delete('/delete_user/:id', deleteUserControlle)
+userRouter.get('/:id', getUserByidController)
+userRouter.post('/', createUserController);
+userRouter.delete('/:id', deleteUserControlle)

@@ -22,6 +22,26 @@ export const createUserController: RequestHandler = async (req: Request, res: Re
     }
 }
 
+export const getUserByidController: RequestHandler = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const user_id = parseInt(id);
+
+        const user = await userService.getUserById(user_id);
+
+        if (user == null) {
+            res.status(404).json({error: 'User not found'});
+            return;
+        }
+
+        res.json(user)
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({error: 'There was an error getting the user: ', err});
+        return;                                                                                                 
+    }   
+}
+
 export const deleteUserControlle: RequestHandler = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
@@ -40,4 +60,14 @@ export const deleteUserControlle: RequestHandler = async (req: Request, res: Res
         res.status(500).json({error: 'There was an error creating the user: ', err});
         return;                                                                                                 
     }   
+}
+
+export const updateUserController: RequestHandler = async (req: Request, res: Response) => {
+    try {
+
+    } catch(err) {
+        console.error(err);
+        res.status(500).json({error: 'There was an error updating the user: ', err});
+        return;
+    }
 }
