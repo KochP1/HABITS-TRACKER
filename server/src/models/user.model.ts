@@ -1,8 +1,9 @@
 import { DataTypes, Model } from "sequelize";
+import bcrypt from 'bcryptjs'
 import sequelize from "config/db";
 
 interface UserAttributes {
-    id: number
+    id?: number
     names: string
     last_names: string
     email: string
@@ -47,5 +48,11 @@ User.init(
         timestamps: true,
     }
 );
+
+
+User.beforeCreate(async (user) => {
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt);
+});
 
 export default User
