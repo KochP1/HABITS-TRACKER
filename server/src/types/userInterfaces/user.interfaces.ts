@@ -22,6 +22,6 @@ interface EditPassword {
 export interface IUserService {
     createUser(data: CreateUser): Promise<User>;
     getUserById(id: number): Promise<User | null>;
-    //updateUser(id: number, data: EditUser): Promise<User>;
+    updateUser(id: number, data: EditUser): Promise<User| null>;
     deleteUser(id: number): Promise<boolean>;
 }

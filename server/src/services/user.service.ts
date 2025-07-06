@@ -25,4 +25,13 @@ export class UserService implements IUserService {
 
         return user;
     }
+
+    async updateUser(id: number, data: {names?: string, last_names?: string, email?: string, password?: string }): Promise<User | null> {
+        const user = await User.findByPk(id);
+
+        if (!user) return null;
+
+        return await user.update(data);
+
+    }
 }
