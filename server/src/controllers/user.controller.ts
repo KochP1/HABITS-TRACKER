@@ -1,6 +1,5 @@
 import {Request, RequestHandler, Response} from 'express'
 import { UserService } from "../services/user.service";
-import { parse } from 'dotenv';
 
 const userService = new UserService();
 
