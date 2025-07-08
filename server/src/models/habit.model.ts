@@ -61,7 +61,7 @@ Habit.init({
         allowNull: true
     },
     type: {
-        type: DataTypes.ENUM,
+        type: DataTypes.ENUM('yes or no', 'measurable'),
         allowNull: false
     }
 

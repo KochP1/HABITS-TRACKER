@@ -1,9 +1,10 @@
 import express from 'express'
+import { createHabitController } from '../controllers/habit.controller';
 
-const habitRouter = express.Router();
+export const habitRouter = express.Router();
 
-habitRouter.post('/');
-habitRouter.get('/');
-habitRouter.delete('/:id');
-habitRouter.patch('/:id')
-habitRouter.post('/measurable_habit')
+habitRouter.post('/', createHabitController);
+//habitRouter.get('/');
+//habitRouter.delete('/:id');
+//habitRouter.patch('/:id')
+//habitRouter.post('/measurable_habit')

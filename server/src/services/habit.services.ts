@@ -1,4 +1,4 @@
-import { Habit } from "@models/habit.model";
+import { Habit } from "../models/habit.model";
 import { IHabitService } from "../types/habitsInterfaces/habits.interfaces";
 
 export class HabitService implements IHabitService {
