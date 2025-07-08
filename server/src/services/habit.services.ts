@@ -28,4 +28,12 @@ export class HabitService implements IHabitService {
 
         return habits;
     }
+
+    async updateHabit(id: number, updates: {name: string, color: string, question: string, frequency: string, unit: string, target: number, target_type: string, type: string}): Promise<Habit | null> {
+        const habit = await Habit.findByPk(id);
+
+        if (!habit) return null;
+
+        return await habit.update(updates)
+    }
 }

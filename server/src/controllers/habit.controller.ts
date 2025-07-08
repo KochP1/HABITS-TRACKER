@@ -77,3 +77,27 @@ export const getHabitController: RequestHandler = async (req: Request, res: Resp
         return;
     }
 }
+
+export const updateHabitController: RequestHandler = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const habit_id = parseInt(id);
+
+        if (Object.keys(req.body).length <= 0) {
+            res.status(400).json({error: 'At least one field is required to update'})
+        };
+
+        const habit = await habitService.updateHabit(habit_id, req.body);
+
+        if (habit == null) {
+            res.status(404).json({error: 'The habit was not found'});
+            return;
+        }
+
+        res.status(200).json({message: 'The habit was updated', hanitId: habit.id})
+    } catch(err) {
+        console.error(err);
+        res.status(500).json({error: 'There was an error updating the habits'});
+        return;
+    }
+}
