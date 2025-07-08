@@ -8,14 +8,14 @@ interface TrackerAttributes {
     done: string
 }
 
-export class Tracker extends Model<TrackerAttributes> implements TrackerAttributes {
+export class Tracking extends Model<TrackerAttributes> implements TrackerAttributes {
     public id!: number;
     public habits_id!: number;
     public date!: string;
     public done!: string
 }
 
-Tracker.init({
+Tracking.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
