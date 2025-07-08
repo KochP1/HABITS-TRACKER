@@ -53,7 +53,7 @@ Habit.init({
         allowNull: true
     },
     target: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: true
     },
     target_type: {
