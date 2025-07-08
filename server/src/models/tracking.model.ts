@@ -30,7 +30,7 @@ Tracking.init({
         allowNull: false
     },
     done: {
-        type: DataTypes.ENUM('yes', 'no'),
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'no'
     }

@@ -12,5 +12,4 @@ interface UpdateTracking {
 
 export interface ITrackingService {
     createTracking(data: CreateTracking): Promise<Tracking>
-    updateTracking(id: number, data: UpdateTracking): Promise<Tracking | null>
 }
