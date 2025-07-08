@@ -14,7 +14,7 @@ interface HabitAttributes {
     type: string
 }
 
-class Habit extends Model<HabitAttributes> implements HabitAttributes {
+export class Habit extends Model<HabitAttributes> implements HabitAttributes {
     public id!: number;
     public name!: string
     public color!: string
