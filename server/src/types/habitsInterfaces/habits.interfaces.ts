@@ -1,6 +1,7 @@
 import { Habit } from "@models/habit.model";
 
 interface CreateHabit {
+    user_id: number
     name: string
     color: string
     question: string
@@ -9,6 +10,7 @@ interface CreateHabit {
 };
 
 interface CreateMeasurableHabit {
+    user_id: number
     name: string
     color: string
     question: string
@@ -22,4 +24,6 @@ interface CreateMeasurableHabit {
 export interface IHabitService {
     createHabit(data: CreateHabit): Promise<Habit>
     createMeasurableHabit(data: CreateMeasurableHabit): Promise<Habit>
+    deleteHabit(id: number): Promise<boolean>
+    getHabitByUserId(id: number): Promise<Habit[]>
 }

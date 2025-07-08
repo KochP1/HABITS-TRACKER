@@ -4,6 +4,7 @@ import sequelize from "../config/db";
 
 interface HabitAttributes {
     id?: number
+    user_id: number
     name: string
     color: string
     question: string
@@ -16,6 +17,7 @@ interface HabitAttributes {
 
 export class Habit extends Model<HabitAttributes> implements HabitAttributes {
     public id!: number;
+    public user_id!: number
     public name!: string
     public color!: string
     public question!: string
@@ -31,6 +33,10 @@ Habit.init({
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     name: {
         type: DataTypes.STRING,
