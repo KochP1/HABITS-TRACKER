@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { StringValue } from 'ms'
 import User from "../models/user.model";
+import { Token } from '../models/token.model';
 
 export class AuthService {
     async createJwt(id: number) {
@@ -35,5 +36,28 @@ export class AuthService {
         });
 
         return user;
+    }
+
+    async saveToken(token: string, time: number) {
+        return await Token.create({
+            token: token,
+            types: 'jwt',
+            expires_at: new Date(time * 1000)
+        });
+    }
+
+    async logout(token: string) {
+        if(!token) {
+            throw new Error('Token not found');
+        }
+
+        const decoded = jwt.decode(token);
+
+        if (!decoded || typeof decoded === 'string' || !decoded.exp) {
+            throw new Error('Token inválido o sin expiración');
+        }
+
+        return await this.saveToken(token, decoded.exp)
+
     }
 }

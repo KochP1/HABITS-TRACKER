@@ -41,3 +41,22 @@ export const loginController: RequestHandler = async (req: Request, res: Respons
         return;
     }
 }
+
+export const logOutController: RequestHandler = async (req: Request, res: Response) => {
+    try {
+        const authHeader = req.header('Authorization');
+        const token = authHeader?.replace('Bearer ', '');
+
+        if (!token) {
+            res.status(400).json({ error: 'Token no proporcionado' });
+            return;
+        }
+
+        await authService.logout(token)
+        res.json({ message: 'Sesión cerrada exitosamente' });
+    } catch(err) {
+        console.error(err);
+        res.status(500).json({error: 'There was an error login out the user'});
+        return;
+    }
+}
