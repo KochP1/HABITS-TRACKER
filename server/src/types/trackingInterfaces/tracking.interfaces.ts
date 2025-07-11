@@ -12,4 +12,5 @@ interface UpdateTracking {
 
 export interface ITrackingService {
     createTracking(data: CreateTracking): Promise<Tracking>
+    updateTracking(habits_id: number | string, id:number ,data: UpdateTracking): Promise<Tracking | null>
 }
