@@ -11,7 +11,7 @@ interface Props {
 
 export const SignUpForm = ({name, control, label, type, error}: Props) => {
     return (
-        <div className="input-form__container">
+        <div className="input-auth-form__container">
             <label htmlFor={name}>{label}</label>
             <Controller name={name} control={control} render={({field}) => <input id={name} type={type} {...field} className={`form-control ${error ? "is-invalid": ""}`}></input>}/>
             {error && (

@@ -13,16 +13,16 @@ export const LoginPage = () => {
 
     return (
         <div className='auth-form__wrapper'>
-            <form className="auth__form">
+            <form className="auth-signIn__form">
                 <SignInForm name='email' type='email' label='Email' control={control} />
                 <SignInForm name='password' type='password' label='Password' control={control} />
 
                 <button className="auth-form__btn">
                     Sign in
                 </button>
-                
+
                 <div className="auth-form-links__container">
-                    <Link to={'#'}>Don't have an account?</Link>
+                    <Link to={'/regist'}>Don't have an account?</Link>
                 </div>
             </form>
         </div>
