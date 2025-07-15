@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { type LoginFormValue, loginSchema } from "../../models";
 import './auth.css';
 import { SignInForm } from '../../components/auth/SignInForm';
@@ -8,6 +9,13 @@ import { useAuth } from "../../hooks";
 
 const url = 'http://localhost:3000/api/auth/';
 export const LoginPage = () => {
+    const navigate = useNavigate();
+    const token = localStorage.getItem('authToken');
+
+    if (token) {
+        return navigate('/home');
+    }
+
     const { control, handleSubmit } = useForm<LoginFormValue>({
         resolver: zodResolver(loginSchema),
         mode: 'onBlur'

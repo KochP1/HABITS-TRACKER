@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { type RegistFormValues, registSchema } from "../../models";
 import './auth.css';
 import { SignUpForm } from "../../components/auth/SignUpForm";
