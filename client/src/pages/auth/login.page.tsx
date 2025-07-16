@@ -13,7 +13,7 @@ export const LoginPage = () => {
     const token = localStorage.getItem('authToken');
 
     if (token) {
-        return navigate('/home');
+        navigate('/home');
     }
 
     const { control, handleSubmit } = useForm<LoginFormValue>({
