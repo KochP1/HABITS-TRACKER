@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import { LoginPage, RegistPage, HabitsPage } from './pages';
+import { LoginPage, RegistPage, HabitsPage, CreateHabitsPage } from './pages';
 
 function App() {
 
@@ -11,6 +11,7 @@ function App() {
           <Route path='/' element={ <LoginPage/> } />
           <Route path='/regist' element={ <RegistPage/> } />
           <Route path='/home' element={ <HabitsPage/> } />
+          <Route path='/habit' element={ <CreateHabitsPage/> } />
         </Routes>
     </Router>
     </>

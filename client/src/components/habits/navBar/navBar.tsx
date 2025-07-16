@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import './navBar.css';
 
-export const NavBar = () => {
+interface Params {
+    modal: () => void
+}
+
+export const NavBar = ({modal}: Params) => {
     return (
         <>
             <header>
@@ -12,7 +16,7 @@ export const NavBar = () => {
                     <ul className='navList'>
 
                         <li className='navItem'>
-                            <button>
+                            <button onClick={modal}>
                                 <i className="fa-solid fa-plus"></i>
                             </button>
                         </li>

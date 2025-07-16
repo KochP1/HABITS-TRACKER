@@ -1,0 +1,20 @@
+.habit-choices__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.habit-choice__button {
+    width: 90%;
+    border: 1px solid #333;
+}
+
+.habit-choice__button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
