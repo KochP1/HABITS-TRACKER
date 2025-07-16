@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './navBar.css';
 
 interface Params {
-    modal: () => void
+    modal?: () => void
 }
 
 export const NavBar = ({modal}: Params) => {

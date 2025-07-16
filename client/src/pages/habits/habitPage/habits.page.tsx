@@ -1,9 +1,11 @@
 import { NavBar } from "../../../components/habits/navBar/navBar";
 import { Modal } from "../../../components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './habit.page.css'
 
 export const HabitsPage = () => { 
+    const navigate = useNavigate();
     const userString = localStorage.getItem('user')
     const user = userString ? JSON.parse(userString): null;
 
@@ -28,7 +30,7 @@ export const HabitsPage = () => {
 
             <Modal modulo="Create Habit" toggle={toggleModal} modal={modal}>
                 <div className="habit-choices__wrapper">
-                    <button className="habit-choice__button">
+                    <button className="habit-choice__button" onClick={() => navigate('/habit')}>
                         <h2>Yes or no</h2>
                         <p>Did you exercise?</p>
                     </button>
